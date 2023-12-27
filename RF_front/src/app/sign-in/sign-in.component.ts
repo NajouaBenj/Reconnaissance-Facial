@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,10 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  mode:number=0;
+
+  constructor(private authService:AuthentificationService,private router:Router) { }
 
   ngOnInit(): void {
   }
-  
+
+  onSignIn(user:any){
+    this.authService.signIn(user).subscribe(resp=>{
+      if(resp.body) {
+        this.router.navigateByUrl('/list-cv');
+      }
+      else {
+        this.router.navigateByUrl('/signin');
+      }
+    },error => this.mode=1);
+  }
+
+  onSignUp(){
+    this.router.navigateByUrl('/signup')
+  }
 
 }
+
