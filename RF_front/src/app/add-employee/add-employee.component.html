@@ -1,1 +1,57 @@
-<p>add-employee works!</p>
+<h2> Add new Article</h2>
+<form (ngSubmit) = "OnSubmit()">
+
+  <div class="form-group">
+    <label> Nom Employé </label>
+    <input type="text" maxlength="80" class="form-control" id="nom"
+           [(ngModel)] = "employee.nom" name="nom">
+  </div>
+
+  <div class="form-group">
+    <label> Prenom </label>
+    <input type="text" maxlength="80" class="form-control" id="prenom"
+           [(ngModel)] = "employee.prenom" name="prenom">
+  </div>
+
+  <div class="form-group">
+    <label> Date de Naissance </label>
+    <input type="text" maxlength="80" class="form-control" id="dateNaissance"
+           [(ngModel)] = "employee.dateNaissance" name="dateNaissance">
+  </div>
+
+  <div class="form-group">
+    <label> Telephone </label>
+    <input type="text" maxlength="80" class="form-control" id="telephone"
+           [(ngModel)] = "employee.telephone" name="telephone">
+  </div>
+
+  <div class="form-group">
+    <label> Adresse </label>
+    <input type="text" maxlength="80" class="form-control" id="adresse"
+           [(ngModel)] = "employee.adresse" name="adresse">
+  </div>
+
+  <div class="form-group">
+    <label> Departement </label>
+    <input type="text" maxlength="80" class="form-control" id="departemant"
+           [(ngModel)] = "employee.departemant" name="departemant">
+  </div>
+
+  <div class="form-group">
+    <label> salaire </label>
+    <input type="text" maxlength="80" class="form-control" id="salaire"
+           [(ngModel)] = "employee.salaire" name="salaire">
+  </div>
+
+  <div class="form-group">
+    <label> Image </label>
+    <input type="text" maxlength="80" class="form-control" id="image"
+           [(ngModel)] = "employee.image" name="image">
+  </div>
+
+  
+
+  <br>
+  <button class="btn btn-success" type="submit">Save</button>
+
+</form>

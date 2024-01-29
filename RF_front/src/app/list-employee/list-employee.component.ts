@@ -33,4 +33,8 @@ export class ListEmployeeComponent implements OnInit {
     })
   }
 
+  update(ide: number){
+    this.router.navigate(['update-employee',ide]);
+  }
+
 }

@@ -1,1 +1,36 @@
-<p>list-employee works!</p>
+<table class = "table table-striped" *ngIf="employeList">
+    <thead>
+    <tr>
+      <th>NOM</th>
+      <th>PRENOM</th>
+      <th>Date de naissance</th>
+      <th>Telephone</th>
+      <th> Adresse</th>
+      <th>Département</th>
+      <th>Salaire</th>
+    </tr>
+    </thead>
+  
+    <tbody *ngIf="employeList">
+    <tr *ngFor="let e of employeList._embedded.employees">
+      <td>{{e.nom}}</td>
+      <td>{{e.prenom}}</td>
+      <td>{{e.dateNaissance}}</td>
+      <td>{{e.telephone}}</td>
+      <td>{{e.adresse}}</td>
+      <td>{{e.departement}}</td>
+      <td>{{e.salaire}}</td>
+      <td><button (click)="update(e.ide)" class="btn btn-info" style="margin-left : 4%"> Update</button></td>
+      <td><button class="btn btn-danger" style="margin-left : 4%"
+                mwlConfirmationPopover
+                popoverTitle="Delete Employee"
+                popoverMessage="Are you sure ?"
+                placement="left"
+                cancel=""
+                (confirm)="delete(e.ide)">
+          Delete
+        </button></td>
+    </tr>
+    </tbody>
+  </table>
+  
