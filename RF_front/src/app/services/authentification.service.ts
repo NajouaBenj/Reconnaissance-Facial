@@ -14,16 +14,6 @@ export class AuthentificationService {
   }
 
 
-  getHeaders(): {} {
-    // @ts-ignore
-    let headers = new HttpHeaders();
-    headers.set("Cache-control", "no-cache");
-    headers.set("Cache-control", "no-store");
-    headers.set("Expires", "0");
-    headers.set("Pragma", "no-cache");
-    return {headers};
-  }
-
   signIn(user: any) {
     return this.http.post(this.host + "/signin", user, {observe: "response"}, );
   }
@@ -34,6 +24,6 @@ export class AuthentificationService {
 
   signUp(body: any) {
     console.log(body);
-    return this.http.post(this.host + "/signup", body,  this.getHeaders());
+    return this.http.post(this.host + "/signup",body, {observe: "response"},);
   }
 }
